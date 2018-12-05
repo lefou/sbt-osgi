@@ -36,6 +36,10 @@ lazy val proj2 = project.in(file("proj2"))
 
 
 TaskKey[Unit]("verifyBundle") := {
+  // Dependencies
+  OsgiKeys.bundle.in(proj1).value
+  OsgiKeys.bundle.in(proj2).value
+
   import java.io.IOException
   import java.util.zip.ZipFile
   import scala.io.Source
